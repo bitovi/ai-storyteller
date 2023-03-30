@@ -1,0 +1,14 @@
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json /app/
+RUN npm install --production
+RUN npm install -g nodemon
+
+COPY public/ /app/public/
+COPY server.js /app/
+
+CMD ["nodemon", "server.js"]
+
+EXPOSE 3001

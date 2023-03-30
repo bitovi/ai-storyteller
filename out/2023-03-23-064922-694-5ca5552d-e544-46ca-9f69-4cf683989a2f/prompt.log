@@ -1,0 +1,128 @@
+
+==============
+promptsObject
+--------------
+{"storylines":[{"value":"park","file":"prompts/storylines/park.prompt","prompt":"The characters go on a trip to the park"}],"storytellers":[{"value":"dr-seuss","file":"prompts/storytellers/dr-seuss.prompt","prompt":"You are a writer of children's books.  You can convert any format into any other format.\nYou will be writing a story for children age 5-7 in the style of Dr. seuss"}],"characters":[{"value":"merlin","file":"prompts/characters/merlin.prompt","prompt":"Merlin is a grumpy carin terrier with magical powers"},{"value":"wilbur","file":"prompts/characters/wilbur.prompt","prompt":"Wilbur is a fox who thinks he's a pig"}],"stories":{"value":"children","file":"prompts/stories/children.prompt","prompt":"/*\nreplace this comment with the value of the \"prompt\" key for each of the \"storytellers\" list's objects in the given data.\nfor example, if the story data is:\n```\n{\"storytellers\":[{\"value\":\"shakespeare\",\"file\":\"prompts/storytellers/shakespeare.prompt\",\"prompt\":\"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\"}]}\n```\nthen you should use `storytellers[0].prompt` which is\n---\nYou are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\n---\n\nand then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare\nif there are more than one storyteller, combine their styles.\n*/\n\ncreate a story for children ages 5-7 with the following storyline(s): \n---\n// replace this comment with the prompt for each of the storyline in ${storylines}\n---\nIf there's more than one storyline, combine the stories\n\nHere are the characters for the story:\n---\n// replace this comment with the prompt for each of the characters in ${storyline.characters}\n---"}}
+==============
+
+==============
+Full prompt to send to the LLM
+--------------
+
+  /*
+replace this comment with the value of the "prompt" key for each of the "storytellers" list's objects in the given data.
+for example, if the story data is:
+```
+{"storytellers":[{"value":"shakespeare","file":"prompts/storytellers/shakespeare.prompt","prompt":"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare"}]}
+```
+then you should use `storytellers[0].prompt` which is
+---
+You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare
+---
+
+and then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare
+if there are more than one storyteller, combine their styles.
+*/
+
+create a story for children ages 5-7 with the following storyline(s): 
+---
+// replace this comment with the prompt for each of the storyline in ${storylines}
+---
+If there's more than one storyline, combine the stories
+
+Here are the characters for the story:
+---
+// replace this comment with the prompt for each of the characters in ${storyline.characters}
+---
+
+  Please ensure the following details are included in the story:
+  ---
+  
+  ---
+
+  Here's the story data:
+  ---
+  {"storylines":[{"value":"park","file":"prompts/storylines/park.prompt","prompt":"The characters go on a trip to the park"}],"storytellers":[{"value":"dr-seuss","file":"prompts/storytellers/dr-seuss.prompt","prompt":"You are a writer of children's books.  You can convert any format into any other format.\nYou will be writing a story for children age 5-7 in the style of Dr. seuss"}],"characters":[{"value":"merlin","file":"prompts/characters/merlin.prompt","prompt":"Merlin is a grumpy carin terrier with magical powers"},{"value":"wilbur","file":"prompts/characters/wilbur.prompt","prompt":"Wilbur is a fox who thinks he's a pig"}],"stories.value":"children","stories.file":"prompts/stories/children.prompt","stories.prompt":"/*\nreplace this comment with the value of the \"prompt\" key for each of the \"storytellers\" list's objects in the given data.\nfor example, if the story data is:\n```\n{\"storytellers\":[{\"value\":\"shakespeare\",\"file\":\"prompts/storytellers/shakespeare.prompt\",\"prompt\":\"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\"}]}\n```\nthen you should use `storytellers[0].prompt` which is\n---\nYou are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\n---\n\nand then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare\nif there are more than one storyteller, combine their styles.\n*/\n\ncreate a story for children ages 5-7 with the following storyline(s): \n---\n// replace this comment with the prompt for each of the storyline in ${storylines}\n---\nIf there's more than one storyline, combine the stories\n\nHere are the characters for the story:\n---\n// replace this comment with the prompt for each of the characters in ${storyline.characters}\n---"}
+  ---
+  for each of the "prompts" values in the given story data, create a token for yourself to use interpolating promts.
+  for example, anywhere above that you encounter something like: "${storytellers.prompt}" (without the quotes), 
+  you should swap it out for the value in the given story data { storytellers: { prompt: "foo" }}. ("foo" in this case)
+  Do this same thing any for all tokens in the given story data.
+  
+==============
+
+==============
+story
+--------------
+
+
+Dr. Seuss once wrote a story about two unlikely friends, a grumpy Cairn Terrier named Merlin and a fox named Wilbur who thought he was a pig. One day, they decided to go on an adventure to the park. They packed a picnic basket full of treats and set off on their journey. 
+
+As they walked through the park, they saw children playing on the swings and slides. Merlin, being grumpy as usual, didn't want to play with the children. Wilbur, on the other hand, wanted to join in on the fun. 
+
+Merlin sat down on a bench and began to read a book. Wilbur ran off to play with the children. He climbed up the ladder to the slide and slid down with a big smile on his face. 
+
+Suddenly, a gust of wind blew the picnic basket away. Wilbur saw it and ran after it. Merlin, who was too busy reading his book, didn't notice. Wilbur chased the basket all the way to the other side of the park. 
+
+When he caught up to the basket, he found a group of children playing with it. They had found the basket and were having a picnic of their own. Wilbur was sad that he had lost the basket, but he was happy to see the children having fun. 
+
+Merlin eventually got up from the bench and went to find Wilbur. He saw him playing with the children and smiled. He realized that it was okay to have fun and play with others. 
+
+The two friends joined the children for a picnic and had a great time. They ate sandwiches, fruit, and drank lemonade. They even played a game of tag. 
+
+As the sun began to set, the friends said goodbye to the children and headed home. Merlin and Wilbur were tired from their adventure, but they were happy. They had made new friends and had a great time at the park. 
+
+And so, the unlikely friends, Merlin and Wilbur, went on many more adventures together, always remembering the fun they had at the park.
+==============
+
+==============
+promptKeyPoints
+--------------
+
+  give the top 3 key points following story: 
+
+Dr. Seuss once wrote a story about two unlikely friends, a grumpy Cairn Terrier named Merlin and a fox named Wilbur who thought he was a pig. One day, they decided to go on an adventure to the park. They packed a picnic basket full of treats and set off on their journey. 
+
+As they walked through the park, they saw children playing on the swings and slides. Merlin, being grumpy as usual, didn't want to play with the children. Wilbur, on the other hand, wanted to join in on the fun. 
+
+Merlin sat down on a bench and began to read a book. Wilbur ran off to play with the children. He climbed up the ladder to the slide and slid down with a big smile on his face. 
+
+Suddenly, a gust of wind blew the picnic basket away. Wilbur saw it and ran after it. Merlin, who was too busy reading his book, didn't notice. Wilbur chased the basket all the way to the other side of the park. 
+
+When he caught up to the basket, he found a group of children playing with it. They had found the basket and were having a picnic of their own. Wilbur was sad that he had lost the basket, but he was happy to see the children having fun. 
+
+Merlin eventually got up from the bench and went to find Wilbur. He saw him playing with the children and smiled. He realized that it was okay to have fun and play with others. 
+
+The two friends joined the children for a picnic and had a great time. They ate sandwiches, fruit, and drank lemonade. They even played a game of tag. 
+
+As the sun began to set, the friends said goodbye to the children and headed home. Merlin and Wilbur were tired from their adventure, but they were happy. They had made new friends and had a great time at the park. 
+
+And so, the unlikely friends, Merlin and Wilbur, went on many more adventures together, always remembering the fun they had at the park.
+  an example of the output is (for 3 pictures):
+  ---
+  ["characters go to paris", "merlin orders pastries for everyone", "they enjoy their time immensely"]
+  ---
+  ensure the number of items in the list equals 3.
+  ensure the output contains only a list and no other words or content. Also, no newlines, please.
+  I want to save your response in a JS variable.
+  The output should be a single array of strings, and each string in the array is one of the key points you generate.
+  make each key point very descriptive because I'd like to feed it into Dall-E, an ai image generation model
+  that takes prompts and outputs pictures.
+  The images should be consistent with each other, but otherwise, feel free to embelish with details
+  each prompt should include a description about the characters involved in the corresponding key point
+
+==============
+
+==============
+keyPoints
+--------------
+
+
+["Merlin and Wilbur embark on a picnic adventure to the park", "Wilbur's playful nature brings joy to the children at the park", "Merlin learns to let loose and have fun with new friends"]
+==============
+
+==============
+images
+--------------
+[{"index":0,"keyPoints":{"role":"assistant","content":"\n\n[\"Merlin and Wilbur embark on a picnic adventure to the park\", \"Wilbur's playful nature brings joy to the children at the park\", \"Merlin learns to let loose and have fun with new friends\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-3rX09GhO1N5D8XbtjDog1NpT.png?st=2023-03-23T05%3A49%3A43Z&se=2023-03-23T07%3A49%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T05%3A53%3A16Z&ske=2023-03-24T05%3A53%3A16Z&sks=b&skv=2021-08-06&sig=TiEo0qfQCtz1WE65EoRsw68UB2d4DtB3mQT90dv59Aw%3D"},{"index":1,"keyPoints":{"role":"assistant","content":"\n\n[\"Merlin and Wilbur embark on a picnic adventure to the park\", \"Wilbur's playful nature brings joy to the children at the park\", \"Merlin learns to let loose and have fun with new friends\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-HKcjlZRYHMJzf2eiLzSLaNha.png?st=2023-03-23T05%3A49%3A48Z&se=2023-03-23T07%3A49%3A48Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T06%3A07%3A25Z&ske=2023-03-24T06%3A07%3A25Z&sks=b&skv=2021-08-06&sig=m/AQaKXtzZzev9lV87POv/RloxgFxsXt6AGrB1i6oDo%3D"},{"index":2,"keyPoints":{"role":"assistant","content":"\n\n[\"Merlin and Wilbur embark on a picnic adventure to the park\", \"Wilbur's playful nature brings joy to the children at the park\", \"Merlin learns to let loose and have fun with new friends\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-KX4UjOAPBukuwVP1fda0QGI1.png?st=2023-03-23T05%3A49%3A52Z&se=2023-03-23T07%3A49%3A52Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T06%3A17%3A49Z&ske=2023-03-24T06%3A17%3A49Z&sks=b&skv=2021-08-06&sig=Kdc9cMpxpCifD9d31q36nlYO60uX6DU6EAFvFHZc7fs%3D"}]
+==============

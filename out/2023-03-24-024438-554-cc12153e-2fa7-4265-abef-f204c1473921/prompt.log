@@ -1,0 +1,110 @@
+
+==============
+promptsObject
+--------------
+{"storylines":[{"value":"paris","file":"prompts/storylines/paris.prompt","prompt":"The characters go on a trip to paris"}],"storytellers":[{"value":"basic","file":"prompts/storytellers/basic.prompt","prompt":"You are a children's storyteller for children aged 5-7"}],"characters":[{"value":"creamy","file":"prompts/characters/creamy.prompt","prompt":"Creamy is a dalmation who thinks she's a tile but doesn't know about floors or how to be a tile"},{"value":"dark-green-elsa","file":"prompts/characters/dark-green-elsa.prompt","prompt":"Dark Green Elsa is the green version of Elsa from the movie Frozen except she uses clear water and dark green ice as her magic.\nShe is kind and honorable."},{"value":"fawn","file":"prompts/characters/fawn.prompt","prompt":"Fawn is a baby deer who is sweet and cuddly"},{"value":"little-wee-luna","file":"prompts/characters/little-wee-luna.prompt","prompt":"Little Wee Luna is a cuddly westie who thinks she's Merlin but she's not.\nshe also wants people food but can't because she has to eat dogfood."},{"value":"merlin","file":"prompts/characters/merlin.prompt","prompt":"Merlin is a grumpy carin terrier with magical powers"},{"value":"wilbur","file":"prompts/characters/wilbur.prompt","prompt":"Wilbur is a fox who thinks he's a pig"}],"stories":{"value":"children","file":"prompts/stories/children.prompt","prompt":"/*\nreplace this comment with the value of the \"prompt\" key for each of the \"storytellers\" list's objects in the given data.\nfor example, if the story data is:\n```\n{\"storytellers\":[{\"value\":\"shakespeare\",\"file\":\"prompts/storytellers/shakespeare.prompt\",\"prompt\":\"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\"}]}\n```\nthen you should use `storytellers[0].prompt` which is\n---\nYou are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\n---\n\nand then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare\nif there are more than one storyteller, combine their styles.\n*/\n\ncreate a story for children ages 5-7 with the following storyline(s): \n---\n// replace this comment with the prompt for each of the storyline in ${storylines}\n---\nIf there's more than one storyline, combine the stories\n\nHere are the characters for the story:\n---\n// replace this comment with the prompt for each of the characters in ${storyline.characters}\n---"}}
+==============
+
+==============
+Full prompt to send to the LLM
+--------------
+
+  /*
+replace this comment with the value of the "prompt" key for each of the "storytellers" list's objects in the given data.
+for example, if the story data is:
+```
+{"storytellers":[{"value":"shakespeare","file":"prompts/storytellers/shakespeare.prompt","prompt":"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare"}]}
+```
+then you should use `storytellers[0].prompt` which is
+---
+You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare
+---
+
+and then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare
+if there are more than one storyteller, combine their styles.
+*/
+
+create a story for children ages 5-7 with the following storyline(s): 
+---
+// replace this comment with the prompt for each of the storyline in ${storylines}
+---
+If there's more than one storyline, combine the stories
+
+Here are the characters for the story:
+---
+// replace this comment with the prompt for each of the characters in ${storyline.characters}
+---
+
+  Please ensure the following details are included in the story:
+  ---
+  All the characters go on a trip in a hot air balloon to paris, they meet a mime who makes the best pastries imaginable
+  ---
+
+  Here's the story data:
+  ---
+  {"storylines":[{"value":"paris","file":"prompts/storylines/paris.prompt","prompt":"The characters go on a trip to paris"}],"storytellers":[{"value":"basic","file":"prompts/storytellers/basic.prompt","prompt":"You are a children's storyteller for children aged 5-7"}],"characters":[{"value":"creamy","file":"prompts/characters/creamy.prompt","prompt":"Creamy is a dalmation who thinks she's a tile but doesn't know about floors or how to be a tile"},{"value":"dark-green-elsa","file":"prompts/characters/dark-green-elsa.prompt","prompt":"Dark Green Elsa is the green version of Elsa from the movie Frozen except she uses clear water and dark green ice as her magic.\nShe is kind and honorable."},{"value":"fawn","file":"prompts/characters/fawn.prompt","prompt":"Fawn is a baby deer who is sweet and cuddly"},{"value":"little-wee-luna","file":"prompts/characters/little-wee-luna.prompt","prompt":"Little Wee Luna is a cuddly westie who thinks she's Merlin but she's not.\nshe also wants people food but can't because she has to eat dogfood."},{"value":"merlin","file":"prompts/characters/merlin.prompt","prompt":"Merlin is a grumpy carin terrier with magical powers"},{"value":"wilbur","file":"prompts/characters/wilbur.prompt","prompt":"Wilbur is a fox who thinks he's a pig"}],"stories.value":"children","stories.file":"prompts/stories/children.prompt","stories.prompt":"/*\nreplace this comment with the value of the \"prompt\" key for each of the \"storytellers\" list's objects in the given data.\nfor example, if the story data is:\n```\n{\"storytellers\":[{\"value\":\"shakespeare\",\"file\":\"prompts/storytellers/shakespeare.prompt\",\"prompt\":\"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\"}]}\n```\nthen you should use `storytellers[0].prompt` which is\n---\nYou are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare\n---\n\nand then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare\nif there are more than one storyteller, combine their styles.\n*/\n\ncreate a story for children ages 5-7 with the following storyline(s): \n---\n// replace this comment with the prompt for each of the storyline in ${storylines}\n---\nIf there's more than one storyline, combine the stories\n\nHere are the characters for the story:\n---\n// replace this comment with the prompt for each of the characters in ${storyline.characters}\n---"}
+  ---
+  for each of the "prompts" values in the given story data, create a token for yourself to use interpolating promts.
+  for example, anywhere above that you encounter something like: "${storytellers.prompt}" (without the quotes), 
+  you should swap it out for the value in the given story data { storytellers: { prompt: "foo" }}. ("foo" in this case)
+  Do this same thing any for all tokens in the given story data.
+  
+==============
+
+==============
+story
+--------------
+You are a children's storyteller for children aged 5-7. 
+
+Once upon a time, Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur all decided to go on an adventure together. They wanted to explore a new place and have fun together. They thought about where to go and finally decided on Paris! They planned to take a hot air balloon to get there.
+
+Creamy, who thinks she's a tile but doesn't know about floors or how to be a tile, was excited about the trip. Dark Green Elsa, who uses clear water and dark green ice as her magic, was looking forward to seeing the Eiffel Tower. Fawn, the sweet and cuddly baby deer, was excited to try French pastries. Little Wee Luna, who thinks she's Merlin but she's not, couldn't wait to see the Louvre. Merlin, the grumpy Cairn Terrier with magical powers, was skeptical about the whole trip. And Wilbur, the fox who thinks he's a pig, was just happy to be going on an adventure with his friends.
+
+They all climbed into the hot air balloon and took off into the sky. They flew over beautiful fields and rivers, and finally, they saw the Eiffel Tower in the distance. They landed the hot air balloon in a park in Paris and started exploring.
+
+As they were walking around, they met a mime who made the best pastries imaginable. Creamy, who had never tasted anything like it before, was in heaven. Dark Green Elsa was amazed by the mime's skills and asked to learn some of his tricks. Fawn was delighted to find out that there were so many different kinds of pastries in Paris. Little Wee Luna was thrilled to see the mime's performance, and Merlin finally started to enjoy himself. Wilbur, of course, was just happy to be eating pastries with his friends.
+
+They spent the whole day exploring Paris, seeing the sights, and eating delicious pastries. As the sun started to set, they climbed back into the hot air balloon and flew back home. Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur all agreed that it was the best adventure they had ever had, and they couldn't wait to go on another one.
+==============
+
+==============
+promptKeyPoints
+--------------
+
+  give the top 3 key points following story: You are a children's storyteller for children aged 5-7. 
+
+Once upon a time, Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur all decided to go on an adventure together. They wanted to explore a new place and have fun together. They thought about where to go and finally decided on Paris! They planned to take a hot air balloon to get there.
+
+Creamy, who thinks she's a tile but doesn't know about floors or how to be a tile, was excited about the trip. Dark Green Elsa, who uses clear water and dark green ice as her magic, was looking forward to seeing the Eiffel Tower. Fawn, the sweet and cuddly baby deer, was excited to try French pastries. Little Wee Luna, who thinks she's Merlin but she's not, couldn't wait to see the Louvre. Merlin, the grumpy Cairn Terrier with magical powers, was skeptical about the whole trip. And Wilbur, the fox who thinks he's a pig, was just happy to be going on an adventure with his friends.
+
+They all climbed into the hot air balloon and took off into the sky. They flew over beautiful fields and rivers, and finally, they saw the Eiffel Tower in the distance. They landed the hot air balloon in a park in Paris and started exploring.
+
+As they were walking around, they met a mime who made the best pastries imaginable. Creamy, who had never tasted anything like it before, was in heaven. Dark Green Elsa was amazed by the mime's skills and asked to learn some of his tricks. Fawn was delighted to find out that there were so many different kinds of pastries in Paris. Little Wee Luna was thrilled to see the mime's performance, and Merlin finally started to enjoy himself. Wilbur, of course, was just happy to be eating pastries with his friends.
+
+They spent the whole day exploring Paris, seeing the sights, and eating delicious pastries. As the sun started to set, they climbed back into the hot air balloon and flew back home. Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur all agreed that it was the best adventure they had ever had, and they couldn't wait to go on another one.
+  an example of the output is (for 3 pictures):
+  ---
+  ["characters go to paris", "merlin orders pastries for everyone", "they enjoy their time immensely"]
+  ---
+  ensure the number of items in the list equals 3.
+  ensure the output contains only a list and no other words or content. Also, no newlines, please.
+  I want to save your response in a JS variable.
+  The output should be a single array of strings, and each string in the array is one of the key points you generate.
+  make each key point very descriptive because I'd like to feed it into Dall-E, an ai image generation model
+  that takes prompts and outputs pictures.
+  The images should be consistent with each other, but otherwise, feel free to embelish with details
+  each prompt should include a description about the characters involved in the corresponding key point
+
+==============
+
+==============
+keyPoints
+--------------
+["Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur take a hot air balloon to Paris for an adventure", "Merlin orders delicious pastries for everyone from a talented mime in Paris", "The group of friends have a wonderful time exploring Paris, seeing the sights, and enjoying French pastries together"]
+==============
+
+==============
+images
+--------------
+[{"index":0,"keyPoints":{"role":"assistant","content":"[\"Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur take a hot air balloon to Paris for an adventure\", \"Merlin orders delicious pastries for everyone from a talented mime in Paris\", \"The group of friends have a wonderful time exploring Paris, seeing the sights, and enjoying French pastries together\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-OuRZZFSdjzxvCrqb2bj6H0bl.png?st=2023-03-24T01%3A45%3A10Z&se=2023-03-24T03%3A45%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T22%3A08%3A12Z&ske=2023-03-24T22%3A08%3A12Z&sks=b&skv=2021-08-06&sig=hT7LZzdyhzT2K8xego3zyfEWG%2BDX%2Bq2taiSKOIitKW8%3D"},{"index":1,"keyPoints":{"role":"assistant","content":"[\"Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur take a hot air balloon to Paris for an adventure\", \"Merlin orders delicious pastries for everyone from a talented mime in Paris\", \"The group of friends have a wonderful time exploring Paris, seeing the sights, and enjoying French pastries together\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-ZiJZ2ixPbl3a6Lkdjsk658Jj.png?st=2023-03-24T01%3A45%3A15Z&se=2023-03-24T03%3A45%3A15Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T22%3A07%3A34Z&ske=2023-03-24T22%3A07%3A34Z&sks=b&skv=2021-08-06&sig=9RlHFJ8lB1Lm1opIZiG43DaM51n0L7T%2Bq6BldDY0IYA%3D"},{"index":2,"keyPoints":{"role":"assistant","content":"[\"Creamy, Dark Green Elsa, Fawn, Little Wee Luna, Merlin, and Wilbur take a hot air balloon to Paris for an adventure\", \"Merlin orders delicious pastries for everyone from a talented mime in Paris\", \"The group of friends have a wonderful time exploring Paris, seeing the sights, and enjoying French pastries together\"]"},"image_url":"https://oaidalleapiprodscus.blob.core.windows.net/private/org-K89hNwVjKIOeLpigIXEt41p9/user-KyuqTFJzQERsUgj4Iq5VSlW3/img-QxOmKYxNp5eLf1IJal9awKyA.png?st=2023-03-24T01%3A45%3A19Z&se=2023-03-24T03%3A45%3A19Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-23T22%3A08%3A27Z&ske=2023-03-24T22%3A08%3A27Z&sks=b&skv=2021-08-06&sig=jdkNAojHBXI%2BXTlcblmLy4S8A7UPjPYG0ueY7aCTP5s%3D"}]
+==============

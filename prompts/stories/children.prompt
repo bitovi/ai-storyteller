@@ -1,0 +1,25 @@
+/*
+replace this comment with the value of the "prompt" key for each of the "storytellers" list's objects in the given data.
+for example, if the story data is:
+```
+{"storytellers":[{"value":"shakespeare","file":"prompts/storytellers/shakespeare.prompt","prompt":"You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare"}]}
+```
+then you should use `storytellers[0].prompt` which is
+---
+You are a writer of children's books.  You will be writing a story for children age 5-7 in the style of shakespeare
+---
+
+and then do what each of the prompts says. In the example above, you should make sure the resulting story has the style of shakespeare
+if there are more than one storyteller, combine their styles.
+*/
+
+create a story for children ages 5-7 with the following storyline(s): 
+---
+// replace this comment with the prompt for each of the storyline in ${storylines}
+---
+If there's more than one storyline, combine the stories
+
+Here are the characters for the story:
+---
+// replace this comment with the prompt for each of the characters in ${storyline.characters}
+---
